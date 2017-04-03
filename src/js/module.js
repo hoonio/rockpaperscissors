@@ -1,17 +1,15 @@
-const print = (it) => {
-	console.log(it);
-}
-
 const resetGame = () => {
-  document.getElementById("message").innerHTML = "New game";
+  document.getElementById("message").innerHTML = "Pick your move";
+	document.getElementById("player-move").innerHTML = "";
+	document.getElementById("computer-move").innerHTML = "";
 	toggleButtons();
 };
 
-const playerMove = (playerChoice, choiceValue) => {
+const playerMove = (playerChoice) => {
 	const computerChoice = generateComputerMove()
-	document.getElementById("message").innerHTML = compareHands(choiceValue, computerChoice);
-	document.getElementById("player-move").innerHTML = "You chose " + convertValueToShape(choiceValue);
-	document.getElementById("computer-move").innerHTML = "Computer chose " + convertValueToShape(computerChoice);
+	document.getElementById("message").innerHTML = compareHands(playerChoice, computerChoice);
+	document.getElementById("player-move").innerHTML = "You picked " + convertValueToShape(playerChoice);
+	document.getElementById("computer-move").innerHTML = "Computer picked " + convertValueToShape(computerChoice);
 
 	toggleButtons();
 };
@@ -58,4 +56,4 @@ const generateComputerMove = () => {
 	return Math.floor(3 * Math.random());
 };
 
-module.exports = {print, resetGame, playerMove, toggleButtons}
+module.exports = {resetGame, playerMove, toggleButtons}
