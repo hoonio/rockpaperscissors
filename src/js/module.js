@@ -5,10 +5,13 @@ const resetGame = () => {
 	toggleButtons();
 };
 
-const playerMove = (playerChoice) => {
-	const computerChoice = generateComputerMove()
+const playerMove = (playerInput) => {
+	const computerChoice = generateComputerMove();
+	const playerChoice = (playerInput < 3) ? playerInput : generateComputerMove();
+	const playerPhrase =  (playerInput < 3) ? "You picked " : "On your behalf, computer picked ";
+
 	document.getElementById("message").innerHTML = compareHands(playerChoice, computerChoice);
-	document.getElementById("player-move").innerHTML = "You picked " + convertValueToShape(playerChoice);
+	document.getElementById("player-move").innerHTML = playerPhrase + convertValueToShape(playerChoice);
 	document.getElementById("computer-move").innerHTML = "Computer picked " + convertValueToShape(computerChoice);
 
 	toggleButtons();
