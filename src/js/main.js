@@ -1,5 +1,9 @@
 require('../css/main.scss');
 
-import print from './module';
+import modules from './module';
 
-print('it works well!');
+modules.print('it works well!');
+
+document.getElementById("reset").addEventListener("click", () => {
+  modules.resetGame();
+});
