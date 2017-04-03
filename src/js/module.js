@@ -4,17 +4,20 @@ const print = (it) => {
 
 const resetGame = () => {
   document.getElementById("message").innerHTML = "New game";
-	document.getElementById("reset").classList.add("hidden");
+	toggleButtons();
 };
 
 const playerMove = (playerChoice) => {
 	document.getElementById("message").innerHTML = "You chose " + playerChoice;
-	document.getElementById("reset").classList.remove("hidden");
-	const playButtons = document.getElementsByClassName("play-choice");
-	console.log(playButtons)
-	// for each (const button in playButtons) {
-	// 	button.classList.add("hidden");
-	// }
+	toggleButtons();
 }
 
-module.exports = {print, resetGame, playerMove}
+const toggleButtons = () => {
+	const buttons = document.getElementsByTagName("button");
+	for (var i=0; i<buttons.length; i++){
+		const button = buttons[i];
+		button.classList.toggle("hidden");
+	}
+}
+
+module.exports = {print, resetGame, playerMove, toggleButtons}
