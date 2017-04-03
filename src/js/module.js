@@ -10,8 +10,8 @@ const resetGame = () => {
 const playerMove = (playerChoice, choiceValue) => {
 	const computerChoice = generateComputerMove()
 	document.getElementById("message").innerHTML = compareHands(choiceValue, computerChoice);
-	document.getElementById("player-move").innerHTML = "You chose " + choiceValue;
-	document.getElementById("computer-move").innerHTML = "Computer chose " + computerChoice;
+	document.getElementById("player-move").innerHTML = "You chose " + convertValueToShape(choiceValue);
+	document.getElementById("computer-move").innerHTML = "Computer chose " + convertValueToShape(computerChoice);
 
 	toggleButtons();
 };
@@ -23,6 +23,22 @@ const toggleButtons = () => {
 		button.classList.toggle("hidden");
 	}
 };
+
+const convertValueToShape = (choiceValue) => {
+	let valueString;
+	switch(choiceValue) {
+		case 0:
+			valueString = "rock";
+			break;
+		case 1:
+			valueString = "paper";
+			break;
+		default:
+			valueString = "scissors";
+			break;
+	}
+	return valueString;
+}
 
 const compareHands = (playerHand, computerHand) => {
 	if (playerHand == 0 && computerHand == 2){
