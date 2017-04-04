@@ -1,0 +1,8 @@
+body {
+  background-color: green; }
+  body h1, body p {
+    color: white; }
+  body .hidden {
+    display: none; }
+
+/*# sourceMappingURL=main.css.map*/
